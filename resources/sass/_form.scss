@@ -1,0 +1,116 @@
+.input-icon{
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid gray;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    margin-top: 50px;
+
+}
+
+.go-block{
+    // background-color: green;
+    margin-top: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-button{
+    width: 30%;
+    padding: 10px 0;
+}
+.registreer-btn{
+    width: 100%;
+    margin-top: 10px;
+    // padding: 5px 0;
+}
+
+.btn-orange:before {
+  background: $pink;
+  background: linear-gradient(110deg, $orange 0%, $pink 100%);  z-index: -2;
+}
+
+.btn-orange:after{
+  background-color: $orange;
+}
+.btn-green:before {
+  background: rgb(6,115,31);
+background: linear-gradient(110deg, rgba(6,115,31,1) 0%, rgba(39,246,85,1) 100%);
+}
+
+.btn-green:after{
+  background-color: rgb(6,115,31);
+}
+.btn-red:before {
+  background: rgb(115,6,6);
+background: linear-gradient(110deg, rgba(115,6,6,1) 0%, rgba(246,39,39,1) 100%);
+}
+
+.btn-red:after{
+  background-color: rgba(246,39,39,1);
+}
+.buttonfx{
+    color: white; /* button text color */
+    outline: none;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    letter-spacing: 0.0625em;
+    text-transform: uppercase;
+    line-height: 2;
+    position: relative;
+      display: inline-block;
+    cursor: pointer;
+      text-decoration: none; /* remove underline if using A instead of BUTTON tag */
+    overflow: hidden;
+    transition: all .5s;
+    font-size: 20px;
+  }
+  
+
+.buttonfx:before,
+.buttonfx:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  // background: $orange;
+  z-index: -1;
+  transform: translate3D(0,-100%,0); /* move elements above button so they don't appear initially */
+  transition: all .5s;
+}
+
+.buttonfx:before{
+    // background: $pink;
+    // background: linear-gradient(110deg, $orange 0%, $pink 100%);  z-index: -2;
+    transform: translate3D(0,0,0);
+}
+
+.buttonfx:hover{
+	color: white;
+}
+
+.buttonfx:hover:after{
+  transform: translate3D(0,0,0);
+  transition: all .5s;
+}
+
+/* //// Slide Left  //// */
+
+.slideleft:after{
+  top: 0;
+  z-index: -1;
+  transform: translate3D(-101%,0,0);
+}
+
+.slideleft:hover:after{
+  transform: translate3D(0,0,0);
+  transition: all .5s;
+}
+
+input:focus{
+    outline: none;
+}

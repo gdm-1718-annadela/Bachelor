@@ -1,28 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="block block-center block-bg "> 
+        <form class="mood-selection" action="{{route('filterstory')}}" method="post">
+        <div class="flex ">
+            @csrf
+            @foreach($moods as $mood)
+          <input type="submit" class="mood-input" type="radio" name="mood" id={{$mood->id}} value={{$mood->id}} hidden>
+          <label class="mood-label" class="flex" for={{$mood->id}}><img src="{{'../../'.$mood->picturepath.'/'.$mood->picturetitle}}"></label>  
+          @endforeach          
+        </div>
+    </form>
+       {{-- <div class="story-line">
+        @foreach($stories as $story)
+            <a href="{{route('detailStory', $story->id)}}"><div class="date">{{$story->created_at}}</div><div class="stripe"></div><div class="circle"></div></a>
+            <div class="stripe-hoz"></div>
+        @endforeach
+       </div> --}}
+    </div>
+    <div class="block block-stories  border">
+        <div class="flex space-between">
+        <h1 class="title-basic">Verhalen</h1>
+        <div class="addbutton"><a href="{{route('createStory', 2)}}"><i class="fas fa-plus"></i></a></div>  
+        </div>
+        @foreach($stories as $story)
+            <div class="scroll" id="{{$story->id}}"></div>
+            <div class="stories">
+                <div class="profile-picture" style="background-image: url('/{{ $story->user->picturepath.'/'.$story->user->picturetitle}}')"></div>
+            <h1>{{$story->title}}</h1>
+                <div class="flex space-between fullWidth margin-top">
+                <a href="{{route('findUser', $story->user_id)}}"><h2>{{$story->user->username}}</h2></a>
+                    <p>{{$story->created_at}}</p>
+                </div>
+                <p class="margin-top">{{$story->text}}</p>
+                @if($story->mood)
+                <p class="margin-top">voelt zich {{$story->mood->mood}}</p>
+                @endif
 
-<h1>Stories for everyone</h1>
 
-<div><a href="{{route('createStory')}}">add story</a></div>
+                <div class="images">
+                    @foreach($images as $image)
+                        @if($image->story_id == $story->id)
+                        <div><img src="{{asset($image->path  . '/' . $image->title)}}"></div>
+                        @endif
+                    @endforeach
+                    @foreach($audios as $audio)
+                        @if($audio->story_id == $story->id)
+                            <div><audio controls style="height:54px;"><source src="{{asset($audio->path  . '/' . $audio->title)}}"></audio></div>
+                        @endif
+                    @endforeach
+                    @foreach($videos as $video)
+                        @if($video->story_id == $story->id)
+                            <div><video src="{{asset($video->path  . '/' . $video->title)}}" controls></video></div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
+    </div>
+    
 
-@foreach($stories as $story)
-@if($story->images->first() != null)
-@if($story->images->first()->type == 'image')
-<img style="width: 300px" src="{{ $story->images->first()['path'].'/'.$story->images->first()['title']}}">
-@elseif($story->images->first()->type == 'audio')
-<audio controls style="height:54px;"><source src="{{asset($story->images->first()['path']  . '/' . $story->images->first()['title'])}}"></audio>
-@elseif($story->images->first()->type == 'video')
-<video  src="{{asset($story->images->first()['path']  . '/' . $story->images->first()['title'])}}" controls></video>
-@endif
-@endif
 
-<h1><a href="{{route('detailStory', $story->id)}}">{{$story->title}}</a></h1>
-@if($story->user->id != Auth::user()->id)
-<p><a href="{{route('findUser', $story->user->id)}}">{{$story->user->username}}</p>
-@else
-<p>{{$story->user->username}}</p>
-@endif
-{{-- <p>{{$story->mood->mood}}</p> --}}
-@endforeach
+
 @endsection

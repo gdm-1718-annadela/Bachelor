@@ -1,0 +1,149 @@
+.intro{
+    // background-color: red;
+    height: 80vh;
+    width: 92.5%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    line-height: 100px;
+}
+
+.intro a{
+    // width: 10vw;
+    // text-align: center;
+}
+
+.block-bg-home{
+    background-image: url('./../assets/background_images/home02.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+}
+
+.center{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.toDo{
+    // background-color: blue;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: $font-family-text;
+    text-align: center;
+    line-height: 25px;
+    transition: 0.5s;
+}
+
+.toDo img{
+    // background-color: green;
+    height: 300px;
+    transition: 0.5s;
+
+}
+
+.toDo-block{
+    width: 100%;
+    // background-color: hotpink;
+    justify-content: space-around;
+}
+
+.toDo:hover img{
+    height: 350px;
+}
+
+.toDo:hover {
+    background-color: rgb(243, 243, 243);
+    padding: 20px;
+}
+
+.leaves{
+    background-image: url('./../assets/background_images/leaves.png');
+    width: 20%;
+    height: 70%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 7.5%;
+    margin-right: 20px;
+}
+
+.bar{
+    width: 100%;
+    background-color: $orange;
+    height: 50vh;
+    align-items: center;
+}
+
+.top{
+    z-index: 5;
+}
+
+.margin{
+    margin: 0 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .first-nav{
+      width: 100%;
+    }
+
+    .toDo img{
+        width: 20%;
+        height: auto;
+    }
+
+    .toDo{
+        width: 100%;
+        padding: 20px;
+    }
+
+    .toDo-block{
+        flex-direction: column;
+    }
+    
+    .first-nav{
+      width: 100%;
+    }
+
+    .toDo img{
+        width: 20%;
+        height: auto;
+    }
+
+    .toDo{
+        width: 100%;
+        padding: 20px;
+    }
+
+    .toDo-block{
+        flex-direction: column;
+    }
+
+    .intro{
+        height: 110vh;
+    }
+    .toDo:hover img{
+        height: 100px;
+        width: auto;
+    }
+
+    .bar{
+        height: 100vh;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .block-bg-home{
+
+    }
+}

@@ -16,6 +16,8 @@ class CreateMoodTable extends Migration
         Schema::create('mood', function (Blueprint $table) {
             $table->id();
             $table->string('mood');
+            $table->string('picturetitle')->nullable();
+            $table->string('picturepath')->nullable();
         });
     }
 

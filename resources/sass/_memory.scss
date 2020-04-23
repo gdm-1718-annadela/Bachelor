@@ -1,0 +1,16 @@
+.border{
+    padding: 70px 20px 0 50px;
+}
+
+.select {
+    border: none;
+    background-color: transparent;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+    background: #fff url('./../assets/background_images/arrow.png') no-repeat right center;
+    background-size: 40px auto;
+    cursor: pointer;
+    padding: 6px 42px 6px 6px;
+}
+

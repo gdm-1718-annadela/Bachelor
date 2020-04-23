@@ -1,20 +1,172 @@
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+
+}
+
+
+.body, #app{
+    width: 100%;
+    height: 100vh;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+}
+
+.block{
+    width: 50%;
+    height: 100vh;
+}
+
+.block-left{
+    width: 55%;
+}
+
+.block-right{
+    width: 45%;
+}
+
+.block-top{
+    height: 45vh;
+}
+
+.block-bg{
+    background-image: url('./../assets/background_images/background03.jpg');
+    background-size: cover;
+    background-position: right;
+    // transition: 8s;
+}
+
+// .block-bg:hover{
+//     background-position: left;
 // }
 
-// .body, #app{
-//     width: 100%;
-//     height: 100vh;
-// }
+.block-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-// .block-left{
-//     width: 50%;
-//     height: 100%;
-//     background-color: blue;
-// }
+.title-basic{
+    font-family: $font-family-text;
+    font-weight:900;
+    font-size: 50px;
+}
 
-// .title{
-//     color: $purple;
-// }
+.text-basic{
+    font-family: $font-family-text;
+    font-weight: 200;
+}
+
+.input-basic{
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-left: 10px;
+    color: black;
+    background-color: transparent;
+}
+
+.form-basic{
+    width: 70%;
+    padding: 20px;
+}
+
+.a-basic{
+    text-decoration: none;
+    color: $orange;
+}
+
+.button-width-basic{
+    width: 20%;
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+}
+
+.light-gray{
+    color: $gray;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.btn-width{
+    width: 20%;
+    text-align: center;
+}
+
+.btn-green{
+    background: rgb(6,115,31);
+    background: linear-gradient(110deg, rgba(6,115,31,1) 0%, rgba(39,246,85,1) 100%);
+}
+
+.margin-top{
+    margin-top: 20px;
+}
+
+.fullheight{
+    height: 100vh;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .title-basic{
+        font-size: 25px;
+    }
+
+    .text-basic{
+        font-size: 15px;
+    }
+
+    .fullheight{
+        height: auto;
+    }
+
+    .button-width-basic{
+        width: 50%;
+    }
+    
+    .container{
+        flex-direction: column;
+    }
+
+    .block-left{
+        display: none;
+    }
+    .block-right{
+        width: 100%;
+        height: 100vh;
+    }
+
+    .block-center{
+        align-items: flex-start;
+        margin-top: 10vh;
+    }
+
+    .block-center{
+        background-image: none;
+    }
+
+    .story-line{
+        display: none;
+    }
+    
+}

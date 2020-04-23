@@ -1,0 +1,135 @@
+.chat-head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('./../assets/background_images/background03.jpg');
+    background-size: cover;
+    background-position: bottom;
+    height: 30vh;
+    justify-content: flex-end;
+    padding-bottom: 30px;
+}
+
+.profile-picture{
+    background-image:url('./../assets/background_images/background03.jpg');
+    background-size: cover;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.icon{
+    width: 70px;
+    height: 70px;
+}
+
+.block-chat{
+    background-color: rgb(228, 228, 228);
+    height: 60vh;
+}
+
+.block-chat a {
+    color: black;
+    text-decoration: none;
+    font-family: $font-family-text;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.block-chat a h3{
+    // font-weight: 200;
+    text-transform: uppercase;
+}
+
+.chat-person{
+    background-color: rgb(255, 255, 255);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 7.5% 0 7.5%;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+.chat-person:hover{
+    box-shadow: 5px 5px 5px gray;
+    height: 150px;
+    display: flex;
+}
+
+.chat-box{
+    width: 100%;
+    // background-color: blue;
+    justify-content: space-between;
+}
+
+.chat-message{
+    width: 60%;
+    margin-left: 2%;
+}
+
+.browse{
+    height: 10vh;
+    padding: 20px 7.5%;
+    margin-bottom: 5px;
+    box-shadow: 2px 2px 5px gray;
+}
+
+.browse input, .browse textarea{
+    width: 79%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: transparent;
+}
+
+.browse button{
+    position: absolute;
+    width: 20%;
+    right:7.5%;
+    height: 50px;
+    z-index: 5;
+}
+
+.chat-left{
+    padding: 0 7.5%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.chat-right{
+    flex-direction: row-reverse;
+    padding: 0 7.5%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+
+.chat-left .width{
+    background: $pink;
+    background: linear-gradient(110deg, $orange 0%, $yellow 100%);
+    border-radius: 20px;
+    border-top-left-radius: 0;
+}
+
+.chat-right .width{
+    background-color: $gray;
+    background: linear-gradient(110deg,rgb(238, 238, 238) 0%, $gray 100%);
+    border-radius: 20px;
+    border-top-right-radius: 0;
+
+}
+
+.width{
+    width: 90%;
+    padding: 20px;
+    font-family: $font-family-text;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.chat{
+    margin-top: 20px;
+    height: 60vh;
+    overflow-y: scroll;
+    overflow-anchor: auto;
+
+}

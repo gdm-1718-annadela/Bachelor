@@ -19,11 +19,11 @@ class CreateStoryTable extends Migration
             $table->string('title');
             $table->text('text')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
             $table->unsignedBigInteger('mood_id')->nullable();
-            $table->foreign('mood_id')->references('id')->on('mood');
+            $table->foreign('mood_id')->references('id')->on('mood')->onDelete('cascade');
         });
     }
 

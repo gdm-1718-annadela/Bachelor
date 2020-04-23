@@ -21,7 +21,7 @@ class CreateImageTable extends Migration
             $table->string('title');
             $table->string('type');
             $table->unsignedBigInteger('story_id')->nullable();
-            $table->foreign('story_id')->references('id')->on('story');
+            $table->foreign('story_id')->references('id')->on('story')->onDelete('cascade');
         });
     }
 

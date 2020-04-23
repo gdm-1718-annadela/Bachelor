@@ -127,8 +127,8 @@ class ImageController extends Controller
 
         $rules= [
             'story_id' => 'required|numeric',
-            'file'  => 'required | max:20000',
-            'file.*'  => 'mimes:mp4,mov,ogg | max:20000',
+            'file'  => 'required',
+            // 'file.*'  => 'mimes:mp4,mov,ogg',
         ];
         
         $validator=Validator::make($request->all(), $rules);
@@ -186,5 +186,25 @@ class ImageController extends Controller
         $image->path = $filepath;
         $image->caption = 'dit is een caption';
         $image->save();
+    }
+
+    public function delete($image_id, Request $request){
+
+        $image = Image::where('id',$image_id)->first();
+
+        $file = str_replace('storage', '', $image->path) . '/' . $image->title;
+        //dd($file);
+
+        if(Storage::disk('public')->exists($file)){
+            //dd('bestaat, dus kan verwijderd worden');
+            $isDeleted = Storage::disk('public')->delete($file);
+            if($isDeleted) {
+                Image::where('id',$image_id)->delete();
+            }
+        } else {
+            dd('iets mis');
+        }
+        
+        return redirect()->back();
     }
 }

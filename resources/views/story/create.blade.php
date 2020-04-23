@@ -1,33 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{route("saveStory")}}" method="post">
-    @csrf
+<div class="container">
+  <div class="block block-bg"></div>
+  <div class="block block-center">
+    <form action="{{route("saveStory")}}" method="post">
+      @csrf
 
-    <h1>make a new
+      <h1 class="title-basic">Maak een
 
-    <select name="category">
-    @foreach($categories as $category)
-    <option value="{{$category->id}}">{{$category->type}}</option>
-    @endforeach
-    </select>
-</h1>
+        <select class="title-basic select" name="category">
+          @foreach($categories as $category)
+            <option class="text-basic" @if($category->id == (int)$type) selected @endif value='{{$category->id}}' >
+            {{ ucfirst($category->type) }}
+            </option>
+          @endforeach
+        </select>
+      </h1>
 
-    <label>title</label>
-    <input name="title" type="text" value="{{ old('title') }}">
+      <div class="input-icon">
+      <input class="text-basic input-basic" placeholder="Geef jou herinnering een titel" name="title" type="text" value="{{ old('title') }}">
+      </div>
 
-    <input type="submit">
-    @foreach($errors->all() as $error)
-    <div class="alert alert-danger">
-      <ul>
-  
-        <li>{{ $error }}</li>
-  
-      </ul>
-    </div>
-    @endforeach
+      <button class="registreer-btn buttonfx slideleft btn-orange" type="submit">Ga verder</button>
+      @foreach($errors->all() as $error)
+      <div class="alert alert-danger">
+        <ul>
+    
+          <li>{{ $error }}</li>
+    
+        </ul>
+      </div>
+      @endforeach
 
 
-</form>
-
+    </form>
+  </div>
+</div>
 @endsection
