@@ -17,8 +17,8 @@ class ImageController extends Controller
 
         $rules= [
             'story_id' => 'required|numeric',
-            'file'=> 'required|max:10420',
-            'file.*'=> 'image|mimes:jpeg,png,gif,svg,jpg|max:2048'
+            'file'=> 'required',
+            'file.*'=> 'image|mimes:jpeg,png,gif,svg,jpg'
         ];
         
         $validator=Validator::make($request->all(), $rules);
@@ -124,11 +124,13 @@ class ImageController extends Controller
         }
     }
     public function storeVideo(Request $request) {
+        // phpinfo();        
+
 
         $rules= [
             'story_id' => 'required|numeric',
             'file'  => 'required',
-            // 'file.*'  => 'mimes:mp4,mov,ogg',
+            'file.*'  => 'mimes:mp4,mov,ogg',
         ];
         
         $validator=Validator::make($request->all(), $rules);
@@ -167,7 +169,7 @@ class ImageController extends Controller
         }else{
             return Redirect::back()
             ->withInput()
-            ->withErrors("te groot")
+            ->withErrors($request)
             ->with(
                 [
                     'notification'=>'succes',

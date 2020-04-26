@@ -1,11 +1,14 @@
 .input-icon{
     display: flex;
     align-items: flex-end;
-    border-bottom: 2px solid gray;
     padding-right: 20px;
     padding-bottom: 5px;
     margin-top: 50px;
+}
 
+.input-icon i{
+  // border-bottom: 2px black solid;
+  padding-bottom: 5px;
 }
 
 .go-block{
@@ -15,9 +18,8 @@
     align-items: center;
 }
 
-.submit-button{
-    width: 30%;
-    padding: 10px 0;
+.padding-button{
+    padding: 10px 30px;
 }
 .registreer-btn{
     width: 100%;

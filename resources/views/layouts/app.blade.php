@@ -7,12 +7,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Flamingo</title>
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/1a8b210154.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="{{asset('./images/flamingo_logo2.png')}}">
+
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --}}
 
 
@@ -27,29 +29,32 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    
-    @if(Auth::user() == null)
-    <nav class="first-nav stroke">
+    {{-- {{Route::currentRoutename()}} --}}
+    @if(Route::currentRoutename()==''|| Route::currentRoutename()=='home' || Route::currentRoutename()=='chat' || Route::currentRoutename()=='profile'|| Route::currentRoutename()=='findChat'|| Route::currentRoutename()=='findUser'|| Route::currentRoutename()=='admin')
+    <nav id="menu" class="full-nav stroke">
+    @elseif(Route::currentRoutename()=='album'|| Route::currentRoutename()=='story'|| Route::currentRoutename()=='tip'|| Route::currentRoutename()=='filter'|| Route::currentRoutename()=='editStory'|| Route::currentRoutename()=='detail'|| Route::currentRoutename()=='createStory' || Route::currentRoutename()=='filterstory'|| Route::currentRoutename()=='filtertypetip')
+    <nav id="menu" class="more-nav stroke">
     @else
-    <nav class="stroke">
+    <nav id="menu" class="less-nav stroke">
     @endif
+    
         <ul class="nav">
             @guest
-                <li><a  href="/">Start pagina</a></li>
-                <li><a  href="/privacy">Privacy policy</a></li>
-                <li><a  href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registreer') }}</a>
+                <li><img class="nav-logo" src="{{asset('./images/flamingo_logo.png')}}"></li>
+                <li><a  href="/"@if(Route::currentRoutename()=='')class="selected-link"@endif>Start pagina</a></li>
+                <li><a  href="/privacy"@if(Route::currentRoutename()=== 'privacy')class="selected-link"@endif>Privacy</a></li>
+                <li><a  href="{{ route('login') }}"@if(Route::currentRoutename()=== 'login')class="selected-link" @endif>{{ __('Login') }}</a></li>
+                    <li ><a  href="/register"@if(Route::currentRoutename()==='register')class="selected-link" @endif>{{ __('Registreer') }}</a>
                     </li>
-                @endif
             @else
-                <li><a href="{{route('home')}}">Start pagina</li>
-                <li><a href="{{route('album')}}">Mijn herinneringen</li>
-                <li><a href="{{route('story')}}">Verhalen</li>
-                <li><a href="{{route('tip')}}">Tips</li>
-                <li><a href="{{route('chat')}}">Chat</li>
-                <li><a href="{{route('profile')}}">{{Auth::user()->username}}</li>
+                <li><img class="nav-logo" src="{{asset('./images/flamingo_logo.png')}}"></li>
+                <li><a href="{{route('home')}}" @if(Route::currentRoutename()=== 'home')class="selected-link"@endif>Start pagina</li>
+                <li><a href="{{route('album')}}" @if(Route::currentRoutename()=== 'album')class="selected-link"@endif>Mijn herinneringen</li>
+                <li><a href="{{route('story')}}" @if(Route::currentRoutename()=== 'story')class="selected-link"@endif>Verhalen</li>
+                <li><a href="{{route('tip')}}" @if(Route::currentRoutename()=== 'tip')class="selected-link"@endif>Tips</li>
+                <li><a href="{{route('chat')}}"@if(Route::currentRoutename()=== 'chat')class="selected-link"@endif>Chat</li>
+                <li><a href="{{route('profile')}}"@if(Route::currentRoutename()=== 'profile')class="selected-link"@endif>{{Auth::user()->username}}</a></li>
+                    
                 <li>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -67,8 +72,91 @@
         </ul>
     </nav>
 
+    <div id="phoneMenu" class="phone-menu"><i class="fas fa-bars"></i></i>
+    </div>
+
     <main class="py-4">
         @yield('content')
     </main>
 </body>
+@if(Route::currentRoutename() !== 'profile')
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+      <IMG SRC="{{asset('./images/flamingo_logo3.png')}}" ALT="" WIDTH=50 >
+        @guest
+        <p class="footer-links">
+          <a  href="/">Start pagina</a>
+          <a  href="/privacy">Privacy</a>
+          <a  href="{{ route('login') }}">{{ __('Login') }}</a>
+          <a  href="/register">{{ __('Registreer') }}</a>
+        </p>
+        @else
+
+      <p class="footer-links">
+        <a href="{{route('home')}}" >Start pagina</a>.
+        <a href="{{route('album')}}" >Mijn herinneringen</a>.
+        <a href="{{route('story')}}" >Verhalen</a>.
+        <a href="{{route('tip')}}" >Tips</a>.
+        <a href="{{route('chat')}}">Chat</a>.
+        <a href="{{route('profile')}}">{{Auth::user()->username}}</a>      
+      </p>
+      @endguest
+
+      <p class="footer-company-name"> &copy; 2019-2020 Anna De Langhe 3NMD-MMP</p>
+    </div>
+
+    <div class="footer-center">
+
+      <div>
+       <a href="https://www.arteveldehogeschool.be/"><img src="https://www.arteveldehogeschool.be/sites/all/themes/epsenkaas_theme/logo.svg"></a>
+      </div>
+
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>09 234 90 00</p>
+      </div>
+
+      <div>
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Industrieweg 232, 9030 Gent</p>
+      </div>
+
+    </div>
+      
+       <div class="footer-center footer-right">
+
+      <div>
+       <a href="https://www.district01.be/"><img class="width" src="https://pbs.twimg.com/profile_images/781045900445683713/4Z9wcGZv.jpg"></a>
+      </div>
+
+      <div>
+        <i class="fas fa-envelope-open-text"></i>
+        <p>info@district01.be</p>
+      </div>
+
+      <div>
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Veldkant 35C, 2550 Kontich</p>
+      </div>
+
+    </div>
+
+    
+
+  </footer>
+  @endif
+
+    {{-- <p>Bachelorproef van Anna De Langhe - 3NMD-MMP</p> --}}
 </html>
+
+<script>
+    window.addEventListener('load', function(){
+        let menu = document.getElementById('menu');
+        let phoneMenu = document.getElementById('phoneMenu');
+        phoneMenu.addEventListener('click', function(){
+            menu.style.display = "block"
+        })
+    })
+</script>

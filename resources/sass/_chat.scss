@@ -8,6 +8,13 @@
     height: 30vh;
     justify-content: flex-end;
     padding-bottom: 30px;
+    padding-top: 10px;
+    box-sizing: content-box;
+}
+
+.chat-head a {
+    box-sizing: none;
+    margin-top: 30vh;
 }
 
 .profile-picture{
@@ -75,13 +82,15 @@
 }
 
 .browse input, .browse textarea{
-    width: 79%;
+    width: 70%;
+    margin-left: 7.5%;
     height: 50px;
     border: none;
     border-bottom: 1px solid gray;
     background-color: transparent;
+    font-family: $font-family-text;
+    font-size: 20px;
 }
-
 .browse button{
     position: absolute;
     width: 20%;
@@ -128,8 +137,22 @@
 
 .chat{
     margin-top: 20px;
-    height: 60vh;
+    height: 54vh;
     overflow-y: scroll;
     overflow-anchor: auto;
 
+}
+
+
+@media only screen and (max-width: 768px) {
+    .phone-screen{
+        height: 95vh;
+    }
+    .chat{
+        margin-top: 20px;
+        height: 50vh;
+        overflow-y: scroll;
+        overflow-anchor: auto;
+    
+    }
 }

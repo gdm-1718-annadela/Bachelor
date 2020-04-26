@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="fullheight">
-    <div class="block-bg-home"></div>
+    <div class="block-bg-home">
+    </div>
         <div class="intro">
             @if(Auth::user())
                 <h1 class="title-basic">Welkom {{Auth::user()->firstname}}</h1>
@@ -50,7 +51,7 @@
         <div class="fullWidth">
             <h2 class="title-basic">Contacteer ons</h2>
             <p class="text-basic">Is er een probleem? of wenst u iets te melden?</p>
-            <form class="form-basic" action="{{ route('contact') }}" method="post">
+            <form  action="{{ route('contact') }}" method="post">
                 @csrf
 
                 @if(Auth::user())

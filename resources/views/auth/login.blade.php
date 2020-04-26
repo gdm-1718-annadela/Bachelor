@@ -7,12 +7,17 @@
     <form class="form-basic" method="POST" action="{{ route('login') }}">
         <h1 class="title-basic">login</h1>
         <h2 class="text-basic">Hi, log je hier in!</h2>
+        @if (Route::has('password.request'))
+        <a class="text-basic a-basic" href="{{ route('password.request') }}">
+            Of bent u uw wachtwoord vergeten?
+        </a>
+    @endif
         @csrf
         <div>
             <div>
                 <div class="input-icon">
-                    <input class="input-basic text-basic" placeholder="E-mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     <i class="fas fa-user"></i>
+                    <input class="input-basic text-basic" placeholder="E-mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                 </div>
 
                 @error('email')
@@ -26,8 +31,8 @@
         <div>
             <div>
                 <div class="input-icon">
-                    <input class="input-basic text-basic" placeholder="Wachtwoord" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                     <i class="fas fa-key"></i>
+                    <input class="input-basic text-basic" placeholder="Wachtwoord" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                 </div>
 
                 @error('password')
@@ -49,14 +54,8 @@
                 </div>
             </div>
 
-            @if (Route::has('password.request'))
-                <a class="text-basic a-basic" href="{{ route('password.request') }}">
-                    {{ __('Wachtwoord vergeten?') }}
-                </a>
-            @endif
-
-            <button class="submit-button buttonfx slideleft btn-orange" type="submit">
-                <i class="fas fa-arrow-right"></i>
+            <button class="padding-button buttonfx slideleft btn-orange" type="submit">
+                Login <i class="fas fa-arrow-right"></i>
             </button>
         </div>
     </form>

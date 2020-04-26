@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-  <div class="block block-bg"></div>
-  <div class="block block-center">
+  <div class="block block-bg block-left-less"></div>
+  <div class="block block-right-more border block-stories">
     <form action="{{route("saveStory")}}" method="post">
       @csrf
 
@@ -22,7 +22,7 @@
       <input class="text-basic input-basic" placeholder="Geef jou herinnering een titel" name="title" type="text" value="{{ old('title') }}">
       </div>
 
-      <button class="registreer-btn buttonfx slideleft btn-orange" type="submit">Ga verder</button>
+      <button class="padding-button buttonfx slideleft btn-orange" type="submit">Ga verder</button>
       @foreach($errors->all() as $error)
       <div class="alert alert-danger">
         <ul>

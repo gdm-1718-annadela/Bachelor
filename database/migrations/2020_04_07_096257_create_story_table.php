@@ -24,6 +24,8 @@ class CreateStoryTable extends Migration
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
             $table->unsignedBigInteger('mood_id')->nullable();
             $table->foreign('mood_id')->references('id')->on('mood')->onDelete('cascade');
+            $table->unsignedBigInteger('type_id')->nullable();
+            $table->foreign('type_id')->references('id')->on('type')->onDelete('cascade');
         });
     }
 

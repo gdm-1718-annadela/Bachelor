@@ -7,7 +7,7 @@
 
 .profile{
     position: absolute;
-    top: 10%;
+    top: 15vh;
     left: 7.5%;
     width: 85vw;
     height: 70vh;
@@ -17,11 +17,16 @@
     top: 0;
 }
 
+.margin-bottom{
+    margin-bottom: 60vh;
+}
+
 .profile .info {
     position: absolute;
     left: 40%;
     top: 52%;
     line-height: 30px;
+    z-index: -1;
 }
 
 .profile .addPicture{
@@ -75,5 +80,8 @@
 
     .addPicture{
         width: 100%;
+    }
+    .profile .info {
+        height: 30vh;
     }
 }

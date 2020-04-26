@@ -9,11 +9,6 @@
     line-height: 100px;
 }
 
-.intro a{
-    // width: 10vw;
-    // text-align: center;
-}
-
 .block-bg-home{
     background-image: url('./../assets/background_images/home02.png');
     background-size: auto 100%;
@@ -74,12 +69,12 @@
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 7.5%;
-    margin-right: 20px;
+    margin-right: 100px;
 }
 
 .bar{
     width: 100%;
-    background-color: $orange;
+    background-color: rgba(255, 166, 0, 0.39);
     height: 50vh;
     align-items: center;
 }

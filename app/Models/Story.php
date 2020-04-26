@@ -16,6 +16,7 @@ class Story extends Model
         'user_id',
         'category_id',
         'mood_id',
+        'type_id',
     ];
 
     public function user()
@@ -25,6 +26,10 @@ class Story extends Model
     public function mood()
     {
       return $this->belongsTo('App\Models\Mood');
+    }
+    public function type()
+    {
+      return $this->belongsTo('App\Models\Type');
     }
 
     public function images() {

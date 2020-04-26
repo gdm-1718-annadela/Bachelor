@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="block block-left block-bg"></div>
-    <div class="block block-right block-form block-center">
+    <div class="block block-right block-stories border text-basic">
         <div>
             <h2><strong>Privacy Policy</strong></h2>
             <p><strong>Privacy policy</strong> voor Arteveldehogeschool, eigenaar van Flamingo</p>

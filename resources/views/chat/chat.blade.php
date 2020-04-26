@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div>
+<div class="phone-screen">
     <div class="chat-head">
         <a href="{{route('findUser', $user->id)}}"><div class="profile-picture" @if($user->picturetitle)style="background-image:url({{$user->picturepath.'/'.$user->picturetitle}}"@endif></div></a>
         <h1 class="title-basic">stuur een bericht naar {{$user->username}}</h1>
@@ -33,7 +33,7 @@
 <form action="{{route("send")}}" method="post">
     @csrf
     <input type="text" name="receiver" value={{$user->id}} hidden>
-    <textarea name="message"></textarea>
+    <textarea class="message" name="message"></textarea>
     <button type="submit" class="buttonfx slideleft btn-orange">Verzend</button>
 </form>
 </div>

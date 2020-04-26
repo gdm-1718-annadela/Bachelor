@@ -2,7 +2,16 @@ nav{
     // background-color: yellow;
     position: absolute;
     width: 100%;
-    padding: 40px 7.5%;
+    padding: 20px 7.5%;
+    background-color: rgba(255, 255, 255, 0.37);
+    box-shadow: 2px 0px 5px $gray;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 70%;
+    right: 0;
+  
+
+
 
     // box-shadow: 0px 5px 0px #dedede;
 }
@@ -10,12 +19,31 @@ nav{
 .nav{
     display:flex;
     justify-content: space-around;
+    // background-color: white;
+    align-items: center;
 }
-.first-nav{
+
+.nav-logo{
+  height: 60px;
+}
+.full-nav{
+    // background-color: green;
+    width: 100%;
+    padding: 20px 7.5%;
+}
+.less-nav{
     // background-color: green;
     width: 45%;
     right: 0;
-    padding: 40px 7.5%;
+    padding: 20px 20px;
+}
+.more-nav{
+    // background-color: green;
+    width: 70%;
+    right: 0;
+    padding: 20px 7.5%;
+    z-index: 20;
+
 }
 
 .first-nav .nav{
@@ -31,7 +59,7 @@ nav ul li a{
     text-decoration: none;
     font-family: $font-family-text;
     text-transform: uppercase;
-    color: #aaa;
+    color: black;
     font-weight: 800;
 }
 
@@ -40,7 +68,7 @@ nav ul li a{
   nav ul li a:before {
     transition: all .5s;
   }
-  nav ul li a:hover {
+  nav ul li a:hover, .selected-link {
     color: $orange;
   }
 
@@ -63,12 +91,50 @@ nav.stroke ul li a:hover:after {
   width: 100%;
 }
 
+.phone-menu{
+  display: none;
+  z-index: 100px;
+
+}
+
 @media only screen and (max-width: 768px) {
   .first-nav{
     width: 100%;
   }
 
-  .nav{
+  nav{
     display: none;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(255, 255, 255, 0.705);
+    backdrop-filter: blur(10px);
   }
+
+  nav .nav{
+    flex-direction: column;
+    height: 80vh;
+  }
+
+  .nav-logo{
+    height: 20vh;
+  }
+
+  .phone-menu{
+    display: block; 
+    width: 100vw;
+    height: 5vh;
+    background-color: $orange;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: white;
+    position: fixed;
+    pointer-events: auto;
+
+  }
+  
 }

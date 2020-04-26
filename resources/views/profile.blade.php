@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="block-top block-bg"></div>
+<div class="block-top block-bg margin-bottom"></div>
 <div class="profile">
     @if(Auth::user()->picturetitle)
     <div class="profile-img" style="background-image:url({{ Auth::user()->picturepath.'/'.Auth::user()->picturetitle}})"></div>

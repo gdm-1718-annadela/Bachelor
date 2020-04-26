@@ -3,16 +3,7 @@
 
 @section('content')
 <div class="container">
-    <div class="block block-center block-bg"> 
-        <form class="mood-selection" action="{{route('filter')}}" method="post">
-            <div class="flex ">
-                @csrf
-                @foreach($moods as $mood)
-                <input type="submit" class="mood-input" type="radio" name="mood" id={{$mood->id}} value={{$mood->id}} hidden>
-                <label class="mood-label" class="flex" for={{$mood->id}}><img src="{{'../../'.$mood->picturepath.'/'.$mood->picturetitle}}"></label>  
-                @endforeach          
-            </div>
-        </form>
+    <div class="block block-left-less block-bg"> 
         <div class="story-line">
             @foreach($stories as $story)
                 <a href="{{route('detail', $story->id)}}"><div class="date">{{$story->created_at}}</div><div class="stripe"></div><div class="circle"></div></a>
@@ -20,10 +11,9 @@
             @endforeach
         </div>
     </div>
-    <div class="block block-stories border">
+    <div class="block block-stories block-right-more border">
         <div class="flex space-between">
             <h1 class="title-basic">Dit is een {{$category->type}}</h1>
-            <div class="addbutton"><a href="{{route('createStory', $story->category_id)}}"><i class="fas fa-plus"></i></a></div>  
         </div>
 
         <h2 class="text-basic">{{$album->title}}</h2>

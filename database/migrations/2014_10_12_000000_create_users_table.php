@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('picturetitle')->nullable();
             $table->string('picturepath')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('type_id')->nullable();
+            $table->foreign('type_id')->references('id')->on('type')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

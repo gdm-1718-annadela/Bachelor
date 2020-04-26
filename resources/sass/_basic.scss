@@ -6,9 +6,11 @@
 
 html{
     scroll-behavior: smooth;
-
 }
 
+// .py-4{
+//     height: 100vh;
+// }
 
 .body, #app{
     width: 100%;
@@ -51,9 +53,19 @@ html{
 .block-center{
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
+    padding-top: 15vh;
 }
 
+
+.block-left-less{
+    width: 30%;
+    overflow-y: scroll;
+
+}
+.block-right-more{
+    width: 70%;
+}
 .title-basic{
     font-family: $font-family-text;
     font-weight:900;
@@ -74,6 +86,10 @@ html{
     padding-left: 10px;
     color: black;
     background-color: transparent;
+    border-bottom: 2px solid black;
+    margin-left:10px;
+    padding-bottom: 5px;
+
 }
 
 .form-basic{
@@ -126,6 +142,9 @@ html{
 .text-align-center{
     text-align: center;
 }
+
+
+
 
 @media only screen and (max-width: 768px) {
     .title-basic{
