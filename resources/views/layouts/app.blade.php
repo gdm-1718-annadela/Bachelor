@@ -110,7 +110,7 @@
     <div class="footer-center">
 
       <div>
-       <a href="https://www.arteveldehogeschool.be/"><img src="https://www.arteveldehogeschool.be/sites/all/themes/epsenkaas_theme/logo.svg"></a>
+       <a href="https://www.arteveldehogeschool.be/"><img src="https://www.arteveldehotrgeschool.be/sites/all/themes/epsenkaas_theme/logo.svg"></a>
       </div>
 
       <div>
