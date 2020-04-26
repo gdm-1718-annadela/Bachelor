@@ -1,3 +1,15 @@
+## Opstarten
+
+* maak een env file aan met de juiste gegevens. 
+* zorg voor een database waar alle data in terecht kan
+* ga in de commandline en zorg dat je in de juiste map zit
+* geef in: composer install
+* geef in: npm install
+* geef in: php artisan migrate
+* geef in: php artisan db:seed
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

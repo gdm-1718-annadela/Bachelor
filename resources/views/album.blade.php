@@ -3,7 +3,7 @@
 @section('content')
 <div class="container ">
     <div class="block block-bg block-left-less block-phone-screen">
-        <button id="choseMood">emoties</button>
+        <button class="filter-button" id="choseMood">emoties</button>
         <form class="mood-selection" action="{{route('filter')}}" method="post">
         <div id="allMoods" class="flex none">
             @csrf

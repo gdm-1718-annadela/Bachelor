@@ -1086,6 +1086,10 @@ html {
   .story-line {
     display: none;
   }
+
+  .buttonfx {
+    font-size: 13px !important;
+  }
 }
 
 nav {
@@ -2218,10 +2222,6 @@ input:focus {
   line-height: 35px;
   margin-right: 3px;
   margin-bottom: 5px;
-}
-
-.width {
-  width: 80px;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
